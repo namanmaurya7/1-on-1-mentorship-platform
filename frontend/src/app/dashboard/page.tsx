@@ -48,7 +48,7 @@ export default function Dashboard() {
   const createSession = async () => {
     if (!user) return;
 
-    const res = await fetch("http://localhost:5000/api/session/create", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/session/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

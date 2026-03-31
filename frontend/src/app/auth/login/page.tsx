@@ -81,7 +81,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    const res = await fetch("http://localhost:5000/api/auth/login", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

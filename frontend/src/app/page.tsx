@@ -73,7 +73,7 @@ export default function Home() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000")
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}`)
       .then((res) => res.text())
       .then((data) => setMessage(data));
   }, []);

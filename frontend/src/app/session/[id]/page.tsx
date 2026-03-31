@@ -109,7 +109,7 @@ export default function SessionPage() {
 
   // ✅ create socket ONLY ONCE
   useEffect(() => {
-    socketRef.current = io("http://localhost:5000", {
+    socketRef.current = io(`${process.env.NEXT_PUBLIC_BACKEND_URL}`, {
       transports: ["websocket"],
     });
 
@@ -195,7 +195,7 @@ export default function SessionPage() {
 
     const fetchMessages = async () => {
       const res = await fetch(
-        `http://localhost:5000/api/session/messages/${id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/session/messages/${id}`,
       );
       const data = await res.json();
 
