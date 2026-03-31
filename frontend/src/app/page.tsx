@@ -65,22 +65,59 @@
 // }
 
 
+// "use client";
+
+// import { useEffect, useState } from "react";
+
+// export default function Home() {
+//   const [message, setMessage] = useState("");
+
+//   useEffect(() => {
+//     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}`)
+//       .then((res) => res.text())
+//       .then((data) => setMessage(data));
+//   }, []);
+
+//   return (
+//     <div className="flex h-screen items-center justify-center">
+//       <h1 className="text-2xl font-bold">{message}</h1>
+//     </div>
+//   );
+// }
+
+
 "use client";
 
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}`)
-      .then((res) => res.text())
-      .then((data) => setMessage(data));
-  }, []);
+  const router = useRouter();
 
   return (
-    <div className="flex h-screen items-center justify-center">
-      <h1 className="text-2xl font-bold">{message}</h1>
+    <div className="h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 text-white">
+      <h1 className="text-4xl font-bold mb-6">
+        🚀 1-on-1 Mentorship Platform
+      </h1>
+
+      <p className="mb-8 text-lg opacity-90">
+        Learn, Code, Chat & Connect in Real-Time
+      </p>
+
+      <div className="flex gap-4">
+        <button
+          onClick={() => router.push("/auth/signup")}
+          className="bg-white text-indigo-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-200 transition"
+        >
+          Sign Up
+        </button>
+
+        <button
+          onClick={() => router.push("/auth/login")}
+          className="bg-black/30 px-6 py-2 rounded-lg font-semibold hover:bg-black/50 transition"
+        >
+          Login
+        </button>
+      </div>
     </div>
   );
 }
